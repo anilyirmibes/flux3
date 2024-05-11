@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: databossdeployment
+
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: bitcoin_fiyat
+  template:
+    metadata:
+      labels:
+        app: bitcoin_fiyat
+    spec:
+      containers:
+      - name: app
+        image: anilyirmibes/devops-case-study-main-app:latest
+        ports:
+        - containerPort: 80
